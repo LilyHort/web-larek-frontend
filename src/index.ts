@@ -101,6 +101,11 @@ events.on('basket:open', () => {
 			index: index + 1,
 		});
 	});
+
+	// Отключение/включение кнопки оформление в зависимости от наличия товаров в корзине
+	const isBasketEmpty = appData.basket.length === 0;
+	basket.setDisabled(basket.button, isBasketEmpty);
+
 	modal.render({
 		content: basket.render(),
 	});
