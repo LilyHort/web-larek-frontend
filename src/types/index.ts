@@ -1,34 +1,26 @@
 // Интерфейс структуры продукта
 export interface IProduct {
-    id: string;
-    description: string;
-    image: string;
-    title: string;
-    category: string;
-    price: number | null;
-	button?: HTMLButtonElement;
-  }
+	id: string;
+	description: string;
+	image: string;
+	title: string;
+	category: string;
+	price: number | null;
+	index?: number;
+}
 
 // Интерфейс списка продуктов
 export interface IProductList {
-  	total: number;
+	total: number;
 	items: IProduct[];
 }
 
-// Интерфейс формы оплаты
-export interface IPaymentForm {
+// Интерфейс заказа
+export interface IOrder {
 	address: string;
 	payment: string;
-}
-
-// Интерфейс формы контактов
-export interface IContactsForm {
 	email: string;
 	phone: string;
-}
-
-// Интерфейс заказа
-export interface IOrder extends IPaymentForm, IContactsForm {
 	total: number;
 	items: string[];
 }
@@ -46,16 +38,7 @@ export interface IAppState {
 	basket: IProduct[];
 	preview: string | null;
 	order: IOrder | null;
-  }
-
-
-// Интерфейс к главноей странице
-interface IMainPageUI {
-    counter: number;
-    catalog: HTMLElement[];
 }
 
-// Интерфейс успешной покупки
-interface IPurchaseResultUI {
-    total: number;
-}
+// Ошибки формы
+export type FormErrors = Partial<Record<keyof IOrder, string>>;
