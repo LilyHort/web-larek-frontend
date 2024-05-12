@@ -121,9 +121,9 @@ events.on('card:delete', (item: IProduct) => {
 // Открыть окно оформления заказа
 events.on('order:open', () => {
 	order = new OrderFormUI(cloneTemplate(orderTemplate), events);
+	appData.clearOrderFields();
 	modal.render({
 		content: order.render({
-			address: appData.order.address,
 			valid: false,
 			errors: '',
 		}),
@@ -135,8 +135,6 @@ events.on('order:submit', () => {
 	order = new OrderFormUI(cloneTemplate(contactsTemplate), events);
 	modal.render({
 		content: order.render({
-			email: appData.order.email,
-			phone: appData.order.phone,
 			valid: false,
 			errors: '',
 		}),

@@ -19,6 +19,14 @@ export class AppState extends Model<IAppState> {
 		this.order.items = [];
 	}
 
+	// Очистка полей заказа
+	clearOrderFields() {
+		this.order.payment = '',
+		this.order.address = '',
+		this.order.email = '',
+		this.order.phone = ''
+	}
+
 	// Подсчет суммы заказа
 	get total() {
 		return this.order.items.reduce(

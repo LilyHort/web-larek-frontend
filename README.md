@@ -138,6 +138,7 @@ yarn build
   - `addToOrder` - добавление продукта в заказ.
   - `removeFromOrder` - удаление продукта из заказа.
   - `get counter` - кол-во товаров в заказе.
+  - `clearOrderFields`- очищает поля заказа.
 
 Свойства:
   - `catalog: IProduct[]` - массив объектов товаров в каталоге.
