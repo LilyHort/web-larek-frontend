@@ -170,13 +170,13 @@ events.on('contacts:submit', () => {
 	api
 		.orderProducts(appData.order)
 		.then((result) => {
+			appData.clearBasket();
+			mainPage.counter = appData.counter;
 			const success = new PurchaseResultUI(
 				cloneTemplate(successOrderTemplate),
 				{
 					onClick: () => {
 						modal.close();
-						appData.clearBasket();
-						mainPage.counter = appData.counter;
 					},
 				}
 			);
